@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SampleMAUI.DataServices;
 
 namespace SampleMAUI;
 
@@ -19,7 +20,9 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+        builder.Services.AddHttpClient<IRestDataService, RestDataService>();
+
+        return builder.Build();
 	}
 }
 
