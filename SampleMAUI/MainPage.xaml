@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleMAUI.MainPage" Title="Main Page">
+
+  
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+          <Label FontSize="18"
+                 Text="{Binding Name}"
+                 HorizontalOptions="Center"/>
+
+               <Label  FontSize="18"
+                 Text="{Binding Info}"
+                 HorizontalOptions="Center"/>
+
+           <Button x:Name="CounterBtn" Text="Click Me"
+                   HorizontalOptions="Center" Clicked="OnCounterClicked" />
+
+            <Label Text="{Binding Source={x:Reference slider},Path=Value}" />
+            <Slider x:Name="slider" Minimum="0" Maximum="50"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
