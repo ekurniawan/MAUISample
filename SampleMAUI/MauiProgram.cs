@@ -21,7 +21,7 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddHttpClient<IRestDataService, RestDataService>();
-
+		builder.Services.AddSingleton<MainPage>();
         return builder.Build();
 	}
 }
