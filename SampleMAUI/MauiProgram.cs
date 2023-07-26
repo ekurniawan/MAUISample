@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using SampleMAUI.DataServices;
+using SampleMAUI.Pages;
 
 namespace SampleMAUI;
 
@@ -22,7 +23,7 @@ public static class MauiProgram
 
         builder.Services.AddHttpClient<IRestDataService, RestDataService>();
 		builder.Services.AddSingleton<MainPage>();
-
+		builder.Services.AddSingleton<ManageToDoPage>();
         return builder.Build();
 	}
 }

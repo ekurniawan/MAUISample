@@ -8,13 +8,13 @@
             <TableView Intent="Data" Grid.Row="0" Grid.ColumnSpan="3">
                 <TableRoot>
                     <TableSection Title="What do you want to do?">
-                        <EntryCell Text="{Binding Path=ToDo.toDoName}"
+                        <EntryCell x:Name="entryName"
                                    Placeholder="Enter Item"/>
                     </TableSection>
                 </TableRoot>
             </TableView>
             <Button Text="Save" Grid.Row="1" Grid.Column="0"
-                    />
+                 Clicked="OnSaveButtonClicked"   />
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
