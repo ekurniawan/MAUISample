@@ -1,39 +1,21 @@
-﻿using SampleMAUI.Models;
+﻿using SampleMAUI.DataServices;
+using SampleMAUI.Models;
 
 namespace SampleMAUI;
 
 public partial class MainPage : ContentPage
 {
-	
-
-	public MainPage()
+    private readonly IRestDataService _dataService;
+    public MainPage(IRestDataService dataService)
 	{
 		InitializeComponent();
-
+		_dataService = dataService;
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-        /*var player1 = new Player
-		{
-			Name = "Erick",
-			Info = "Mobile Legend Winner"
-		};
-		Binding playerBinding = new Binding();
-		playerBinding.Source = player1;
-		playerBinding.Path = "Name";
-		playerData.SetBinding(Label.TextProperty, playerBinding);*/
-
-        var player1 = new Player
-        {
-            Name = "Erick",
-            Info = "Mobile Legend Winner"
-        };
-		BindingContext = player1;
-    }
-
-    void CounterBtn_Clicked(System.Object sender, System.EventArgs e)
+    protected override async void OnAppearing()
     {
+        base.OnAppearing();
+        collectionView.ItemsSource = await _dataService.GetAllToDosAsync();
     }
 }
 
