@@ -21,7 +21,11 @@ public partial class MainPage : ContentPage
 
     async void ToolbarItemAdd_Clicked(System.Object sender, System.EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(ManageToDoPage));
+        var navigationParameter = new Dictionary<string, object>
+        {
+            {nameof(ToDo),new ToDo()}
+        };
+        await Shell.Current.GoToAsync(nameof(ManageToDoPage),navigationParameter);
     }
 
     async void OnSelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)

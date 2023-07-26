@@ -1,4 +1,5 @@
-﻿using SampleMAUI.DataServices;
+﻿using System.Diagnostics;
+using SampleMAUI.DataServices;
 using SampleMAUI.Models;
 
 namespace SampleMAUI.Pages;
@@ -36,9 +37,27 @@ public partial class ManageToDoPage : ContentPage
 
     async void OnSaveButtonClicked(System.Object sender, System.EventArgs e)
     {
-        await _dataService.AddToDoAsync(ToDo);
+        if(_isNew)
+        {
+            Debug.WriteLine("Add new item");
+            await _dataService.AddToDoAsync(ToDo);
+        }
+        else
+        {
+            Debug.WriteLine("update todo item");
+            await _dataService.UpdateToDoAsync(ToDo);
+        }
         await Shell.Current.GoToAsync("..");
     }
 
-    
+    async void OnDeleteButtonClicked(System.Object sender, System.EventArgs e)
+    {
+        await _dataService.DeleteToDoAsync(ToDo.Id);
+        await Shell.Current.GoToAsync("..");
+    }
+
+    async void OnCancelButtonClicked(System.Object sender, System.EventArgs e)
+    {
+        await Shell.Current.GoToAsync("..");
+    }
 }
