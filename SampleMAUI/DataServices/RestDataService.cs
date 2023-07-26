@@ -23,7 +23,6 @@ namespace SampleMAUI.DataServices
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
-
         }
 
         public async Task AddToDoAsync(ToDo toDo)
