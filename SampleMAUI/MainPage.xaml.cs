@@ -23,6 +23,15 @@ public partial class MainPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(ManageToDoPage));
     }
+
+    async void OnSelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
+    {
+        var navigationParameter = new Dictionary<string, object>
+        {
+            {nameof(ToDo),e.CurrentSelection.FirstOrDefault() as ToDo }
+        };
+        await Shell.Current.GoToAsync(nameof(ManageToDoPage), navigationParameter);
+    }
 }
 
 

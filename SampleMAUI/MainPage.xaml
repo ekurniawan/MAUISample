@@ -6,7 +6,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add ToDo" Clicked="ToolbarItemAdd_Clicked" />
     </ContentPage.ToolbarItems>
-    <CollectionView x:Name="collectionView" SelectionMode="Single" Margin="30">
+    <CollectionView x:Name="collectionView" SelectionMode="Single" Margin="30"
+                    SelectionChanged="OnSelectionChanged">
         <CollectionView.ItemsLayout>
             <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
         </CollectionView.ItemsLayout>

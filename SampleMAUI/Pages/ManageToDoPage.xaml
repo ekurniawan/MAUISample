@@ -8,7 +8,7 @@
             <TableView Intent="Data" Grid.Row="0" Grid.ColumnSpan="3">
                 <TableRoot>
                     <TableSection Title="What do you want to do?">
-                        <EntryCell x:Name="entryName"
+                        <EntryCell Text="{Binding Path=ToDo.toDoName}"
                                    Placeholder="Enter Item"/>
                     </TableSection>
                 </TableRoot>
